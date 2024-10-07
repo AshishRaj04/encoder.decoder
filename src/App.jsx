@@ -1,19 +1,18 @@
-import { Hero, BlogPage, About, Navbar , BlogDetail } from "./components";
+import { Hero, BlogPage, About, Navbar, BlogDetail } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import conf from "./conf/conf.js";
 import { Client, Databases } from "appwrite";
 import { useState, useEffect } from "react";
 function App() {
   const [blogs, setBlogs] = useState([]);
   const client = new Client();
-  client
-    .setEndpoint("https://cloud.appwrite.io/v1")
-    .setProject("66f592880015810a8c2b");
+  client.setEndpoint(conf.appwriteURL).setProject(conf.appwriteProject_ID);
 
   const databases = new Databases(client);
 
   let promise = databases.listDocuments(
-    "66f594f30019af275210",
-    "66f59531001a3a55c43d",
+    conf.database_ID,
+    conf.collection_ID,
     []
   );
 
