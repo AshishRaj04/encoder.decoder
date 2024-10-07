@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const nav_items = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
-    { name: "Blog", link: "/blog" },
+    { name: "Blog", link: "/all-blogs" },
   ];
 
   return (
@@ -15,7 +15,9 @@ const Navbar = () => {
           window.scrollTo(0, 0);
         }}
       >
-       <p className="uppercase font-bold text-gray-800 text-2xl">Encoder.Decoder</p> 
+        <p className="uppercase font-bold text-gray-800 text-2xl">
+          Encoder.Decoder
+        </p>
       </Link>
       <div>
         {nav_items.map((items, index) => {
