@@ -9,7 +9,8 @@ export class Service {
   constructor() {
     this.client
       .setEndpoint(conf.appwriteURL)
-      .setProject(conf.appwriteProject_ID);
+      .setProject(conf.appwriteProject_ID)
+      // .setKey(conf.secretAPIKey)
     this.databases = new Databases(this.client);
     this.bucket = new Storage(this.client);
   }
@@ -48,7 +49,6 @@ export class Service {
     date,
     tags,
     excerpt,
-    is_published,
     featuredImage,
   }) {
     try {
@@ -59,11 +59,12 @@ export class Service {
         {
           title,
           content,
+          slug,
           author,
           date,
           tags,
           excerpt,
-          is_published,
+          is_published : true , 
           featuredImage,
         }
       );

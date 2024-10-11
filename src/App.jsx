@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import AddPost from "./pages/AddPost.jsx";
-import Post from "./pages/Post.jsx";
 import EditPost from "./pages/EditPost.jsx";
 function App() {
   const [blogs, setBlogs] = useState([]);
@@ -52,14 +51,11 @@ function App() {
             <Route path="/blog/:slug" element={<BlogPage />} />
           </Routes>
           <Routes>
-            <Route path="/edit-blog/:slug" element={<EditPost />} />
+            <Route path="/edit/:slug" element={<EditPost />} />
           </Routes>
           <Routes>
             <Route path="/about" element={<About />} />
           </Routes>
-          {/* <Routes>
-            <Route path="/blog/:id" element={<BlogDetail />} />
-          </Routes> */}
         </BrowserRouter>
       </Provider>
     </>

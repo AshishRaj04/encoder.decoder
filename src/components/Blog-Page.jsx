@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import service from "../appwrite/config";
@@ -42,7 +42,7 @@ function BlogPage() {
           />
 
           <div className="absolute-right-6 top-6">
-            <Link to={`/edit-post/${post.$id}`}>
+            <Link to={`/edit/${post.$id}`}>
               <Button bgColor="bg-green-500" className="mr-3">
                 Edit
               </Button>

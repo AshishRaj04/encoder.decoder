@@ -1,11 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit"
-import authSlice from "./authSlice"
+import { configureStore } from "@reduxjs/toolkit";
+
+// Placeholder reducer (can be removed later when you add real reducers)
+const placeholderReducer = (state = {}) => state;
 
 const store = configureStore({
-    reducer: {
-        auth: authSlice,
+  reducer: {
+    placeholder: placeholderReducer, // Add this for now
+  }
+});
 
-    }
-})
-
-export default store
+export default store;

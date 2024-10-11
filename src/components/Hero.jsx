@@ -1,10 +1,10 @@
-import {BlogCard , Footer } from "../components";
+import { BlogCard, Footer } from "../components";
 const Hero = ({ blogs }) => {
   return (
     <>
       <div className="h-screen flex flex-col justify-center items-center bg-gray-100">
         <img
-          src="/public/profile_pic.png"
+          src="https://karpathy.ai/assets/me_new.jpg"
           alt="Profile"
           className="w-32 h-32 rounded-full mb-6 shadow-lg"
         />

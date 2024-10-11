@@ -1,7 +1,21 @@
 import React, { useId } from "react";
 
-function Select({ options, label, className, ...props }, ref) {
+function Select({ options, label, className, onChange, ...props }, ref) {
   const id = useId();
+
+  const handleChange = (e) => {
+    const value = e.target.value === "true";
+    if (onChange) {
+      onChange({
+        ...e,
+        target: {
+          ...e.target,
+          value: value,
+        },
+      });
+    }
+  };
+
   return (
     <div className="w-full">
       {label && (
@@ -14,6 +28,7 @@ function Select({ options, label, className, ...props }, ref) {
         id={id}
         ref={ref}
         className={`px-3 py-2 rounded-lg bg-white text-black outline-none focus:bg-gray-50 duration-200 border border-gray-200 w-full ${className}`}
+        onChange={handleChange}
       >
         {options.map((option) => (
           <option key={option} value={option}>

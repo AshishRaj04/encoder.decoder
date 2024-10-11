@@ -5,6 +5,7 @@ const conf = {
   collection_ID: String(import.meta.env.VITE_COLLECTION_ID),
   bucket_ID: String(import.meta.env.VITE_BUCKET_ID),
   tinyMCE_key: String(import.meta.env.VITE_TINYMCE_API),
+  secretAPIKey: String(import.meta.env.VITE_SECRET_API_KEY)
 };
 
 export default conf;

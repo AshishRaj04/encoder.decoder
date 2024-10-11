@@ -3,9 +3,7 @@ import { useForm } from "react-hook-form";
 import Button from "../Button";
 import Input from "../Input";
 import RTE from "../RTE";
-import Select from "../Select";
 import appwriteSerice from "../../appwrite/config";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function PostForm({ post }) {
@@ -15,12 +13,15 @@ export default function PostForm({ post }) {
         title: post?.title || "",
         slug: post?.slug || "",
         content: post?.content || "",
-        status: post?.status || "active",
+        is_published: post?.is_published || "true",
+        author: post?.author || "",
+        tags: post?.tags || "",
+        date: post?.date || "",
+        excerpt: post?.excerpt || "",
       },
     });
 
   const navigate = useNavigate();
-  const userData = useSelector((state) => state.auth.userData);
 
   const submit = async (data) => {
     if (post) {
@@ -36,20 +37,17 @@ export default function PostForm({ post }) {
         featuredImage: file ? file.$id : undefined,
       });
       if (dbPost) {
-        navigate(`/post/${dbPost.$id}`);
+        navigate(`/blog/${dbPost.$id}`);
       }
     } else {
       const file = await appwriteSerice.uploadFile(data.image[0]);
       if (file) {
         const fileId = file.$id;
         data.featuredImage = fileId;
-        const dbPost = await appwriteSerice.createPost({
-          ...data,
-          userId: userData.$id,
-        });
+        const dbPost = await appwriteSerice.createPost(data);
 
         if (dbPost) {
-          navigate(`/post/${dbPost.$id}`);
+          navigate(`/blog/${dbPost.$id}`);
         }
       }
     }
@@ -71,6 +69,7 @@ export default function PostForm({ post }) {
       }
     });
   }, [watch, slugTransform, setValue]);
+
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
       <div className="w-2/3 px-2">
@@ -97,6 +96,30 @@ export default function PostForm({ post }) {
           control={control}
           defaultValue={getValues("content")}
         />
+        <Input
+          label="Excerpt"
+          placeholder="Excerpt"
+          className="mb-4"
+          {...register("excerpt", { required: true })}
+        />
+        <Input
+          label="Author"
+          placeholder="Author"
+          className="mb-4"
+          {...register("author", { required: true })}
+        />
+        <Input
+          label="Tags"
+          placeholder="Tags"
+          className="mb-4"
+          {...register("tags", { required: true })}
+        />
+        <Input
+          label="Date"
+          type="date"
+          className="mb-4"
+          {...register("date", { required: true })}
+        />
       </div>
       <div className="1/3 px-2">
         <Input
@@ -115,12 +138,7 @@ export default function PostForm({ post }) {
             />
           </div>
         )}
-        {/* <Select
-          options={["active", "inactive"]}
-          label="Status"
-          className="mb-4"
-          {...register("status", { required: true })}
-        /> */}
+
         <Button
           type="submit"
           bgColor={post ? "bg-green-500" : undefined}

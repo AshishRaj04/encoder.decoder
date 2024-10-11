@@ -10,14 +10,14 @@ export class AuthService {
     this.account = new Account(this.client);
   }
 
-  async getCurrentUser() {
-    try {
-      return await this.account.get();
-    } catch (error) {
-      console.log("Appwrite service :: getCurrentUser() :: ", error);
-    }
-    return null;
-  }
+  // async getCurrentUser() {
+  //   try {
+  //     return await this.account.get();
+  //   } catch (error) {
+  //     console.log("Appwrite service :: getCurrentUser() :: ", error);
+  //   }
+  //   return null;
+  // }
 }
 
 const authService = new AuthService();
