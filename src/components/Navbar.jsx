@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const nav_items = [
     { name: "Home", link: "/" },
-    { name: "About", link: "/about" },
     { name: "Blog", link: "/all-blogs" },
     { name: "Contact", link: "/contact" },
   ];
@@ -16,14 +15,20 @@ const Navbar = () => {
           window.scrollTo(0, 0);
         }}
       >
-        <p className="uppercase font-bold text-gray-800 text-2xl">
+        <p className="uppercase font-bold text-gray-800 text-2xl bg-green-400 px-1 rounded-sm ">
           Encoder.Decoder
         </p>
       </Link>
       <div>
         {nav_items.map((items, index) => {
           return (
-            <Link key={index} to={items.link} className="mx-2 text-gray-600">
+            <Link
+              key={index}
+              to={items.link}
+              className="mx-2 font-medium text-gray-600 
+              hover:text-green-400
+              "
+            >
               {items.name}
             </Link>
           );

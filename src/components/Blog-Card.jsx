@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 const BlogCard = ({ blogs }) => {
   const blogDocuments = blogs.documents || [];
 
@@ -9,18 +10,23 @@ const BlogCard = ({ blogs }) => {
   return (
     <div className="w-3/4 m-auto">
       <h2 className="text-3xl font-bold text-gray-800 my-8">Recent Posts</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-4">
         {blogDocuments.map((blog, index) => (
-          <div key={index} className="border rounded-lg p-6 shadow-lg">
-            <h2 className="text-xl text-gray-800 font-bold mb-4">
-              {blog.title}
-            </h2>
-            <p className="text-gray-700 mb-4">{blog.excerpt}</p>
+          <Link
+            to={`/blog/${blog.$id}`}
+            key={index}
+            className="group w-full cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-end p-4 border border-transparent dark:border-neutral-800 bg-cover bg-center transition-all duration-500"
+            style={{
+              backgroundImage: `url(${blog.featuredImage})`,
+            }}
+          >
+            <div className="absolute inset-0 bg-black opacity-80 group-hover:opacity-70 transition-opacity duration-300"></div>
 
-            <Link to={`/blog/${blog.$id}`} className="text-blue-500 underline">
-              Read More
-            </Link>
-          </div>
+            <div className="relative z-10 p-4 text-white">
+              <h2 className="text-2xl font-bold mb-2">{blog.title}</h2>
+              <p className="text-base opacity-90">{blog.excerpt}</p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
