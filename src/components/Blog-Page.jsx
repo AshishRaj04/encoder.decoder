@@ -12,7 +12,6 @@ function BlogPage() {
 
   useEffect(() => {
     if (slug) {
-      console.log(slug);
       service.getPost(slug).then((post) => {
         if (post) {
           setPost(post);

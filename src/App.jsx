@@ -6,6 +6,7 @@ import {
   AllPosts,
   AddPost,
   EditPost,
+  Contact,
 } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import conf from "./conf/conf.js";
@@ -59,6 +60,9 @@ function App() {
           </Routes>
           <Routes>
             <Route path="/about" element={<About />} />
+          </Routes>
+          <Routes>
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </BrowserRouter>
       </Provider>

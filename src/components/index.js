@@ -12,6 +12,7 @@ import Select from "./Select.jsx";
 import AddPost from "./AddPost.jsx";
 import AllPosts from "./AllPosts.jsx";
 import EditPost from "./EditPost.jsx";
+import Contact from "./Contact.jsx";
 export {
   Navbar,
   Hero,
@@ -27,4 +28,5 @@ export {
   AddPost,
   AllPosts,
   EditPost,
+  Contact,
 };
