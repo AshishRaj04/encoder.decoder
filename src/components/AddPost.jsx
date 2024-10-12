@@ -1,4 +1,4 @@
-import PostForm from "../components/post-form/PostForm";
+import PostForm from "./post-form/PostForm";
 
 function AddPost() {
   return (

@@ -1,13 +1,18 @@
-import { Hero, BlogPage, About, Navbar, BlogDetail } from "./components";
-import AllPosts from "./pages/AllPosts.jsx";
+import {
+  Hero,
+  BlogPage,
+  About,
+  Navbar,
+  AllPosts,
+  AddPost,
+  EditPost,
+} from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import conf from "./conf/conf.js";
 import { Client, Databases } from "appwrite";
 import { useState, useEffect } from "react";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
-import AddPost from "./pages/AddPost.jsx";
-import EditPost from "./pages/EditPost.jsx";
 function App() {
   const [blogs, setBlogs] = useState([]);
   const client = new Client();
@@ -24,7 +29,6 @@ function App() {
   useEffect(() => {
     promise.then(
       function (response) {
-        // console.log(response)
         setBlogs(response);
       },
       function (error) {

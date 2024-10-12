@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Button from "../Button";
 import Input from "../Input";
 import RTE from "../RTE";
-import appwriteSerice from "../../appwrite/config";
+import service from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 
 export default function PostForm({ post }) {
@@ -26,13 +26,13 @@ export default function PostForm({ post }) {
   const submit = async (data) => {
     if (post) {
       const file = data.image[0]
-        ? await appwriteSerice.uploadFile(data.image[0])
+        ? await service.uploadFile(data.image[0])
         : null;
 
       if (file) {
-        appwriteSerice.deleteFile(post.featuredImage);
+        service.deleteFile(post.featuredImage);
       }
-      const dbPost = await appwriteSerice.updatePost(post.$id, {
+      const dbPost = await service.updatePost(post.$id, {
         ...data,
         featuredImage: file ? file.$id : undefined,
       });
@@ -40,11 +40,11 @@ export default function PostForm({ post }) {
         navigate(`/blog/${dbPost.$id}`);
       }
     } else {
-      const file = await appwriteSerice.uploadFile(data.image[0]);
+      const file = await service.uploadFile(data.image[0]);
       if (file) {
         const fileId = file.$id;
         data.featuredImage = fileId;
-        const dbPost = await appwriteSerice.createPost(data);
+        const dbPost = await service.createPost(data);
 
         if (dbPost) {
           navigate(`/blog/${dbPost.$id}`);
@@ -132,7 +132,7 @@ export default function PostForm({ post }) {
         {post && (
           <div className="w-full mb-4">
             <img
-              src={appwriteSerice.getFilePreview(post.featuredImage)}
+              src={service.previewFile(post.featuredImage)}
               alt={post.title}
               className="rounded-lg"
             />

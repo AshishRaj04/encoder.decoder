@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import appwriteService from "../appwrite/config";
-import PostForm from "../components/post-form/PostForm";
+import PostForm from "./post-form/PostForm";
 
 const EditPost = () => {
   const [post, setPost] = useState(null);

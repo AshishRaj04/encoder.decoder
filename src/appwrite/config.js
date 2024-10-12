@@ -10,7 +10,6 @@ export class Service {
     this.client
       .setEndpoint(conf.appwriteURL)
       .setProject(conf.appwriteProject_ID)
-      // .setKey(conf.secretAPIKey)
     this.databases = new Databases(this.client);
     this.bucket = new Storage(this.client);
   }
@@ -127,11 +126,11 @@ export class Service {
     }
   }
 
-  // previewFile(fileID) {
-  //   const href = this.bucket.getFilePreview(conf.bucket_ID, fileID);
-  //   console.log(href);
-  //   return href;
-  // }
+  previewFile(fileID) {
+    const href = this.bucket.getFilePreview(conf.bucket_ID, fileID);
+    console.log(href);
+    return href;
+  }
 }
 
 const service = new Service();
