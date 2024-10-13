@@ -11,7 +11,6 @@ import RTE from "./RTE.jsx";
 import Select from "./Select.jsx";
 import AddPost from "./AddPost.jsx";
 import AllPosts from "./AllPosts.jsx";
-import EditPost from "./EditPost.jsx";
 import Contact from "./Contact.jsx";
 import MovingBorderButton from "./MovingBorderButton.jsx";
 export {
@@ -28,7 +27,6 @@ export {
   Select,
   AddPost,
   AllPosts,
-  EditPost,
   Contact,
   MovingBorderButton,
 };

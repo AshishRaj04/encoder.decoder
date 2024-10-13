@@ -50,15 +50,9 @@ function App() {
           <Routes>
             <Route path="/all-blogs" element={<AllPosts />} />
           </Routes>
-          {/* <Routes>
-            <Route path="/add-blog" element={<AddPost />} />
-          </Routes> */}
           <Routes>
             <Route path="/blog/:slug" element={<BlogPage />} />
           </Routes>
-          {/* <Routes>
-            <Route path="/edit/:slug" element={<EditPost />} />
-          </Routes> */}
           <Routes>
             <Route path="/about" element={<About />} />
           </Routes>
