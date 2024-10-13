@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
 import service from "../appwrite/config";
-import Button from "../components/Button";
 import parse from "html-react-parser";
+import { CiCalendarDate } from "react-icons/ci";
 
 function BlogPage() {
   const [post, setPost] = useState(null);
@@ -12,52 +11,53 @@ function BlogPage() {
 
   useEffect(() => {
     if (slug) {
-      service.getPost(slug).then((post) => {
-        if (post) {
-          setPost(post);
-        } else {
+      service
+        .getPost(slug)
+        .then((post) => {
+          if (post) {
+            setPost(post);
+          } else {
+            navigate("/");
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching post:", error);
           navigate("/");
-        }
-      });
+        });
     }
   }, [slug, navigate]);
 
-  const deletePost = () => {
-    service.deletePost(post.$id).then((status) => {
-      if (status) {
-        service.deleteFile(post.featuredImage);
-        navigate("/");
-      }
-    });
-  };
-  return post ? (
-    <div className="py-8">
-      <div className="w-full max-w-7xl mx-auto px-4">
-        <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
+  if (!post) return null;
+
+  const formattedDate = post.date?.split("T")[0];
+
+  return (
+    <div className="w-full max-w-7xl mx-auto p-6 my-16 bg-white shadow-lg rounded-lg">
+      <div className="w-full mb-8">
+        <h1 className="text-3xl font-bold mb-4 text-gray-800">{post.title}</h1>
+
+        <div className="flex items-center space-x-6 text-gray-500 text-sm">
+          <p className="flex items-center gap-1">
+            <CiCalendarDate className="text-xl" />
+            {formattedDate}
+          </p>
+          <p>{post.author}</p>
+        </div>
+
+        <div className="mt-6">
           <img
             src={post.featuredImage}
             alt={post.title}
-            className="rounded-xl"
+            className="rounded-xl w-full max-w-3xl mx-auto h-auto object-cover shadow-lg transition-transform duration-300 hover:scale-105"
           />
-
-          {/* <div className="absolute-right-6 top-6">
-            <Link to={`/edit/${post.$id}`}>
-              <Button bgColor="bg-green-500" className="mr-3">
-                Edit
-              </Button>
-            </Link>
-            <Button bgColor="bg-red-500" onClick={deletePost}>
-              Delete
-            </Button>
-          </div> */}
         </div>
-        <div className="w-full mb-6">
-          <h1 className="text-2xl font-bold">{post.title}</h1>
-          <div className="browser-css">{parse(post.content)}</div>
+
+        <div className="text-lg leading-8 mt-6 text-gray-700">
+          {parse(post.content)}
         </div>
       </div>
     </div>
-  ) : null;
+  );
 }
 
 export default BlogPage;
