@@ -13,7 +13,6 @@ function AllPosts() {
     });
   }, []);
 
-  // Function to format date
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
@@ -31,7 +30,6 @@ function AllPosts() {
 
   return (
     <div className="w-full py-8">
-      {/* Header Section */}
       <header className="w-full bg-green-400 py-16 text-center text-white">
         <h1 className="text-4xl font-bold mb-4">Welcome to Our Blog</h1>
         <p className="text-xl">
@@ -73,12 +71,12 @@ function AllPosts() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link
+          {/* <Link
             to="/add-blog"
             className="text-lg font-semibold text-green-500 hover:text-green-700"
           >
             Create a new post
-          </Link>
+          </Link> */}
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import {
   Navbar,
   AllPosts,
   AddPost,
-  EditPost,
+  // EditPost,
   Contact,
   Footer,
 } from "./components";
@@ -50,15 +50,15 @@ function App() {
           <Routes>
             <Route path="/all-blogs" element={<AllPosts />} />
           </Routes>
-          <Routes>
+          {/* <Routes>
             <Route path="/add-blog" element={<AddPost />} />
-          </Routes>
+          </Routes> */}
           <Routes>
             <Route path="/blog/:slug" element={<BlogPage />} />
           </Routes>
-          <Routes>
+          {/* <Routes>
             <Route path="/edit/:slug" element={<EditPost />} />
-          </Routes>
+          </Routes> */}
           <Routes>
             <Route path="/about" element={<About />} />
           </Routes>
