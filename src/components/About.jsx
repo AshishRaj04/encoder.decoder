@@ -72,8 +72,11 @@ const About = () => {
               and
               <span className="font-bold text-red-500">deep learning</span>. I
               love solving complex problems and working with large datasets,
-              especially when it involves training deep neural networks. Let's
-              work together to bring your ideas to life!
+              especially when it involves training{" "}
+              <span className="font-bold text-pink-500">
+                deep neural networks
+              </span>
+              . Let's work together to bring your ideas to life!
             </p>
 
             <p className="mt-4 mb-8 text-secondary text-[16px] max-w-2xl leading-relaxed text-center px-6 font-light text-textColorWhite dark:text-paragraph">

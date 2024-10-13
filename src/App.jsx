@@ -7,6 +7,7 @@ import {
   AddPost,
   EditPost,
   Contact,
+  Footer,
 } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import conf from "./conf/conf.js";
@@ -64,6 +65,7 @@ function App() {
           <Routes>
             <Route path="/contact" element={<Contact />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
       </Provider>
     </>

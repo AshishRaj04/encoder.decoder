@@ -21,7 +21,7 @@ const Hero = ({ blogs }) => {
       </div>
       <About />
       <BlogCard blogs={blogs} />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
