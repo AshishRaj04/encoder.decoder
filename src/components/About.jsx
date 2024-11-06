@@ -47,7 +47,9 @@ const About = () => {
   return (
     <>
       <div className="w-3/4 m-auto">
-        <h2 className="text-3xl font-bold text-gray-800 my-8">About me.</h2>
+        <h2 className="text-3xl text-center font-bold text-gray-800 my-8">
+          About me.
+        </h2>
         <div className="flex flex-row justify-between items-start gap-8">
           <div className="basis-1/2">
             <p className="mt-8 text-secondary text-[18px] max-w-3xl leading-relaxed text-center px-8 md:px-6 font-medium text-textColorWhite dark:text-paragraph transition-all duration-500 ease-in-out">

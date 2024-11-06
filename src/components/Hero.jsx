@@ -1,4 +1,10 @@
-import { BlogCard, Footer, About, MovingBorderButton } from "../components";
+import {
+  BlogCard,
+  Footer,
+  About,
+  MovingBorderButton,
+  Projects,
+} from "../components";
 const Hero = ({ blogs }) => {
   return (
     <>
@@ -20,6 +26,7 @@ const Hero = ({ blogs }) => {
         <MovingBorderButton text="Mail me at" url="/contact" />
       </div>
       <About />
+      <Projects />
       <BlogCard blogs={blogs} />
       {/* <Footer /> */}
     </>

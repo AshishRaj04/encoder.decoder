@@ -9,7 +9,9 @@ const BlogCard = ({ blogs }) => {
 
   return (
     <div className="w-3/4 m-auto">
-      <h2 className="text-3xl font-bold text-gray-800 my-8">Recent Posts</h2>
+      <h2 className="text-3xl font-bold text-gray-800 my-8 text-center">
+        Recent Posts
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 my-4">
         {blogDocuments.map((blog, index) => (
           <Link

@@ -69,6 +69,14 @@ function AllPosts() {
             </div>
           ))}
         </div>
+        {/* <div className="mt-12 text-center">
+          <Link
+            to="/add-blog"
+            className="text-lg font-semibold text-green-500 hover:text-green-700"
+          >
+            Create a new post
+          </Link>
+        </div> */}
       </div>
     </div>
   );

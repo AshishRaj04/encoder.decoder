@@ -13,6 +13,7 @@ import AddPost from "./AddPost.jsx";
 import AllPosts from "./AllPosts.jsx";
 import Contact from "./Contact.jsx";
 import MovingBorderButton from "./MovingBorderButton.jsx";
+import Projects from "./Projects.jsx";
 export {
   Navbar,
   Hero,
@@ -29,4 +30,5 @@ export {
   AllPosts,
   Contact,
   MovingBorderButton,
+  Projects,
 };

@@ -5,9 +5,9 @@ import {
   Navbar,
   AllPosts,
   AddPost,
-  // EditPost,
   Contact,
   Footer,
+  Projects,
 } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import conf from "./conf/conf.js";
@@ -53,11 +53,17 @@ function App() {
           <Routes>
             <Route path="/blog/:slug" element={<BlogPage />} />
           </Routes>
+          {/* <Routes>
+            <Route path="/add-blog" element={<AddPost />} />
+          </Routes> */}
           <Routes>
             <Route path="/about" element={<About />} />
           </Routes>
           <Routes>
             <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Routes>
+            <Route path="/project" element={<Projects />} />
           </Routes>
           <Footer />
         </BrowserRouter>

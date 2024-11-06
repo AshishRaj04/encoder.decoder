@@ -3,7 +3,7 @@ const Navbar = () => {
   const nav_items = [
     { name: "Home", link: "/" },
     { name: "Blog", link: "/all-blogs" },
-    { name: "Contact", link: "/contact" },
+    { name: "Project", link: "/project" },
   ];
 
   return (
