@@ -19,7 +19,7 @@ export const projects = [
     title: "Image Compression Tool",
     description:
       "An image compression tool using K-means clustering for efficient storage.",
-    techStack: ["Python", "NumPy", "Matplotlib"],
+    techStack: ["Python", "NumPy", "Matplotlib", "K-Mean Clustering", "Flask"],
     image:
       "https://miro.medium.com/v2/resize:fit:1400/1*lpBm2VTprkvZXu86BS06Vg.gif",
     liveLink: "https://compression-tool.com",
@@ -29,7 +29,13 @@ export const projects = [
     title: "Celeb Face Generator",
     description:
       "A face generator using variational autoencoder trained on 100k celebrity faces.",
-    techStack: ["Tensorflow", "Generative AI", "Deep Learning"],
+    techStack: [
+      "Tensorflow",
+      "Generative AI",
+      "Deep Learning",
+      "Variational Autoencoders",
+      "Embeddings",
+    ],
     image: "/src/assets/images/celeb-faces.png",
 
     liveLink: "https://compression-tool.com",

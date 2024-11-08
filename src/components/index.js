@@ -13,6 +13,7 @@ import AddPost from "./AddPost.jsx";
 import AllPosts from "./AllPosts.jsx";
 import Contact from "./Contact.jsx";
 import MovingBorderButton from "./MovingBorderButton.jsx";
+import OptimizerWIP from "./Optimizer.jsx";
 import Projects from "./Projects.jsx";
 export {
   Navbar,
@@ -31,4 +32,5 @@ export {
   Contact,
   MovingBorderButton,
   Projects,
+  OptimizerWIP,
 };

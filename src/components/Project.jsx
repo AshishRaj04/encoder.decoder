@@ -24,19 +24,13 @@ const Project = ({
         ))}
       </div>
 
-      <img src={image} alt={title} className="rounded-lg shadow-md mb-4" />
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-64 object-cover rounded-lg shadow-md mb-4"
+      />
 
-      <div className="flex gap-4">
-        {liveLink && (
-          <a
-            href={liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition"
-          >
-            View Project
-          </a>
-        )}
+      <div className="flex gap-4 justify-evenly mt-3">
         {repoLink && (
           <a
             href={repoLink}
@@ -46,6 +40,11 @@ const Project = ({
           >
             View Code
           </a>
+        )}
+        {liveLink && (
+          <button className="bg-green-500 text-white px-4 py-2 rounded-lg cursor-not-allowed">
+            Project Link
+          </button>
         )}
       </div>
     </div>

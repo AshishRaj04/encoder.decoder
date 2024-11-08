@@ -7,7 +7,7 @@ import {
   AddPost,
   Contact,
   Footer,
-  Projects,
+  OptimizerWIP,
 } from "./components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import conf from "./conf/conf.js";
@@ -63,7 +63,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Routes>
-            <Route path="/project" element={<Projects />} />
+            <Route path="/optimizer" element={<OptimizerWIP />} />
           </Routes>
           <Footer />
         </BrowserRouter>
